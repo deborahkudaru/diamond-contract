@@ -2,8 +2,12 @@
 pragma solidity ^0.8.0;
 
 library LibAppStorage {
+    struct AppStorage {
+        A a;
+        B b;
+        C c;
+    }
 
-   // NumberFacet struct
     struct A {
         uint256 num;
         string name;
@@ -20,7 +24,10 @@ library LibAppStorage {
         uint256 createdAt;
     }
 
-    // Random functions Facet struct
-    
-
+    function appStorage() internal pure returns (AppStorage storage s) {
+        bytes32 position = keccak256("diamond.storage.app");
+        assembly {
+            s.slot := position
+        }
+    }
 }
