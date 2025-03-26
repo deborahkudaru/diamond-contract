@@ -2,7 +2,13 @@
 pragma solidity ^0.8.0;
 
 library LibAppStorage {
+    //  AppStorage for NumberFacet
     struct AppStorage {
+        A a;
+        B b;
+        C c;
+        
+       // structs for AdvancedStorageFacet
         UserProfile userProfile;
         ProductDetails productDetails;
         MarketplaceStats marketplaceStats;
@@ -15,6 +21,24 @@ library LibAppStorage {
         EnvironmentalData environmentData;
     }
 
+  //  structs for NumberFacet
+    struct A {
+        uint256 num;
+        string name;
+        mapping(string => uint256) numMap;
+    }
+
+    struct B {
+        address owner;
+        uint256 balance;
+    }
+
+    struct C {
+        bool isActive;
+        uint256 createdAt;
+    }
+
+    // structs for AdvancedStorageFacet
     struct UserProfile {
         string username;
         address walletAddress;
